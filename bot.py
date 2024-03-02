@@ -68,7 +68,7 @@ def send_welcome(message):
 
     bot.send_message(
         user_id,
-        "You need to join the following channels before continuing:\n- @pythonViewbooster",
+        "You need to join the following channels before continuing:\n- @jn_bots",
         parse_mode='HTML',
         reply_markup=markup  # Pass the markup to the reply
     )

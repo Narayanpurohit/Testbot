@@ -2,7 +2,7 @@ from pyrogram import Client, filters
 import os
 
 # Retrieve your API ID, API hash, and bot token from environment variables
-api_id = int(os.environ.get("15191874"))
+api_id = int(os.environ.get(15191874))
 api_hash = os.environ.get("3037d39233c6fad9b80d83bb8a339a07")
 bot_token = os.environ.get("6991774790:AAFjhJM3Gi_aNYhpV6XQ6_zMNusu9F0CevU")
 

@@ -1,25 +1,17 @@
-from pyrogram import Client, filters
-import os
+from telethon.sync import TelegramClient, events
 
-# Retrieve your API ID, API hash, and bot token from environment variables
-api_id = int(os.environ.get(15191874))
-api_hash = os.environ.get("3037d39233c6fad9b80d83bb8a339a07")
-bot_token = os.environ.get("6991774790:AAFjhJM3Gi_aNYhpV6XQ6_zMNusu9F0CevU")
+bot_token = '6991774790:AAFjhJM3Gi_aNYhpV6XQ6_zMNusu9F0CevU'
 
-# Create a Pyrogram Client
-app = Client(
-    "my_user_id_bot",
-    api_id=api_id,
-    api_hash=api_hash,
-    bot_token=bot_token
-)
+client = TelegramClient('bot_session', bot_token=bot_token)
 
-# Define a handler for the /getid command
-@app.on_message(filters.command("getid", prefixes="/"))
-def get_user_id(client, message):
-    user_id = message.from_user.id
-    message.reply_text(f"Your User ID is: {user_id}")
+@client.on(events.NewMessage(pattern='/start'))
+async def handler(event):
+    await event.respond('Hello! I am your bot.')
 
-# Run the bot
-if __name__ == "__main__":
-    app.run()
+@client.on(events.NewMessage)
+async def echo(event):
+    await event.respond(event.text)
+
+if __name__ == '__main__':
+    client.start()
+    client.run_until_disconnected()

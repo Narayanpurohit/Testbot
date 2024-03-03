@@ -1,0 +1,12 @@
+{
+  "name": "telegram-bot-example",
+  "version": "1.0.0",
+  "description": "Simple Telegram bot example using Telegraf",
+  "main": "bot.js", // Replace with the main entry file of your bot
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "telegraf": "^4.5.0" // Replace with the actual version you want to use
+  }
+}
